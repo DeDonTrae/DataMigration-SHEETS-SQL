@@ -81,7 +81,8 @@ This project provides a **Google Sheets Web App** that lets you easily export sh
 
 ## 📸 Screenshots
 
-> (You can add screenshots here later showing the UI, dropdown, and SQL download dialog)
+![image](https://github.com/user-attachments/assets/9e66738c-15e7-45e7-83c8-82d5f5488cea)
+
 
 ---
 
