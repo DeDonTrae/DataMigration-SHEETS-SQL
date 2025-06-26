@@ -92,7 +92,7 @@ All processing happens within your Google account; no external services are used
 
 ## 📞 Support
 
-If you run into issues or want to improve the tool, feel free to [open an issue](https://github.com/your-username/sql-script-generator/issues) or submit a pull request.
+If you run into issues or want to improve the tool, feel free to [open an issue](https://github.com/DeDonTrae/DtaMigration-SHEETS-SQL/issues) or submit a pull request.
 
 ---
 
