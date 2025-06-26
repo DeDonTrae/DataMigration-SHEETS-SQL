@@ -99,14 +99,4 @@ Pull requests are welcome! If you encounter bugs or want to suggest features, pl
 
 ---
 
-## 📄 License
-
-[MIT](LICENSE)
-
----
-
 > Built with ❤️ by [@DeDonTrae](https://github.com/DeDonTrae) to simplify data migration from spreadsheets to SQL databases.
-
-MIT
-
-Built with ❤️ by @DeDonTrae to simplify data migration from spreadsheets to SQL databases.
