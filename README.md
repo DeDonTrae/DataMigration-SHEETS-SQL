@@ -1,105 +1,129 @@
-# DataMigration-SHEETS-SQL
-# 🧾 SQL Script Generator for Google Sheets
+#🧾 DataMigration-SHEETS-SQL
 
-This project allows users to **convert any Google Sheet into SQL scripts** (CREATE TABLE + INSERT statements) using an easy-to-use web interface built with Google Apps Script and HTML.
+#🧾 SQL Script Generator for Google Sheets
 
----
 
-## 📦 Features
 
-- Auto-detects column data types (INT, FLOAT, DATETIME, VARCHAR).
-- Converts sheet data into valid SQL `CREATE TABLE` and `INSERT INTO` statements.
-- Allows users to select any sheet from a dropdown.
-- One-click download of the generated `.sql` file.
-- Clean, responsive UI for ease of use.
+This project provides a Google Sheets Web App that lets you easily export sheet data as valid SQL scripts (CREATE TABLE + INSERT INTO). Built entirely with Google Apps Script + HTML, it helps streamline database population for migrations and prototyping.
 
----
+📦 Features
 
-## 🚀 How to Deploy
+✅ Detects correct SQL data types (INT, FLOAT, DATETIME, VARCHAR)
 
-> You must have a Google Sheet and permission to edit Apps Script for it.
+✅ Reads any sheet in your spreadsheet
 
-### 1. Clone or Copy the Code
+✅ One-click download of a clean, ready-to-run .sql file
 
-- Open your Google Sheet.
-- Click on **Extensions > Apps Script**.
-- Replace any existing content in `Code.gs` with the code from [`Code.gs`](./Code.gs).
-- Add a new HTML file (`Index.html`) and paste the content from [`Index.html`](./Index.html).
+✅ Responsive HTML interface
 
-### 2. Deploy as a Web App
+✅ Lightweight, fast, and no external dependencies
 
-- In Apps Script, click **Deploy > Test deployments** or **Manage deployments**.
-- Choose **Web App**.
-- Under *Execute as*: **Me**
-- Under *Who has access*: **Anyone** (or **Only you**, for internal use)
-- Click **Deploy** and authorize access if prompted.
-- Copy the **web app URL** and open it in your browser.
+🚀 Deployment Guide
 
----
+🛠️ Step 1: Set Up Script Files
 
-## 🛠️ How It Works
+Open your target Google Sheet
 
-1. The app loads available sheet names into a dropdown.
-2. You select a sheet (with headers in the first row).
-3. Click **Generate & Download SQL**.
-4. It analyzes each column to guess SQL data types:
-   - Numbers → `INT` or `FLOAT`
-   - Dates → `DATETIME`
-   - Text → `VARCHAR(n)`
-5. Generates:
-   - `CREATE TABLE <sheet_name> (...)`
-   - `INSERT INTO <sheet_name> (...) VALUES (...)`
-6. Automatically triggers a download of a `.sql` file.
+Go to Extensions > Apps Script
 
----
+In the Script Editor:
 
-## 📝 Sheet Requirements
+Replace any existing content in Code.gs with the file from this repo
 
-- The **first row must contain column headers**.
-- Data must start from the **second row onward**.
-- Each sheet represents one SQL table.
+Add a new HTML file named Index.html and paste the content from this repo
 
----
+🛰️ Step 2: Deploy Web App
 
-## 📁 File Structure
+In the Apps Script menu, click Deploy > Manage deployments
 
-| File         | Purpose                                       |
-|--------------|-----------------------------------------------|
-| `Code.gs`    | Google Apps Script backend for data parsing   |
-| `Index.html` | Frontend HTML for the web app interface       |
+Select Web app
 
----
+Settings:
 
-## 💡 Customization Ideas
+Execute as: Me
 
-- Prompt user for custom table name.
-- Export multiple sheets at once.
-- Add option to preview SQL before download.
-- Support additional SQL dialects (MySQL, PostgreSQL, etc).
+Who has access: Anyone (or Only you for internal use)
 
----
+Click Deploy
 
-## 🔐 Permissions
+Open the web app link to access the UI
 
-This app runs within Google Sheets. It needs permission to:
+🧠 How It Works
 
-- Read data from sheets
-- Serve HTML and trigger file downloads
+The app reads the column headers from the first row of the selected sheet
 
-All processing happens within your Google account; no external services are used.
+It scans the values in each column to determine the most appropriate SQL data type:
 
----
+Whole numbers → INT
 
-## 📞 Support
+Decimal numbers → FLOAT
 
-If you run into issues or want to improve the tool, feel free to [open an issue](https://github.com/DeDonTrae/DtaMigration-SHEETS-SQL/issues) or submit a pull request.
+Recognized dates → DATETIME
 
----
+Everything else → VARCHAR(n) (dynamic sizing)
 
-## 📄 License
+Generates SQL:
 
-MIT License — feel free to use, modify, and distribute.
+CREATE TABLE <sanitized_sheet_name> (...)
 
----
+INSERT INTO statements for every row of data
 
-> Built with ❤️ to make working with data and databases easier.
+Instantly triggers download of a .sql file with all the above
+
+✅ Sheet Format Requirements
+
+Requirement
+
+Description
+
+Headers
+
+Must be in the first row
+
+Data
+
+Starts from row 2
+
+Naming
+
+Sheet name becomes the table name (sanitized)
+
+📁 File Structure
+
+File
+
+Purpose
+
+Code.gs
+
+Server-side logic (Apps Script)
+
+Index.html
+
+Front-end UI (sheet selector & generator)
+
+💡 Future Improvements
+
+
+
+📸 Screenshots
+
+(You can add screenshots here later showing the UI, dropdown, and SQL download dialog)
+
+🔐 Permissions & Security
+
+Data stays within your Google account
+
+Script runs entirely inside your Google environment
+
+No third-party APIs or external dependencies
+
+🧩 Contributing
+
+Pull requests are welcome! If you encounter bugs or want to suggest features, please open an issue.
+
+📄 License
+
+MIT
+
+Built with ❤️ by @DeDonTrae to simplify data migration from spreadsheets to SQL databases.
